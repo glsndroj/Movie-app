@@ -16,7 +16,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 export const Navbar = () => {
   const { setTheme } = useTheme();
   return (
-    <div className="flex justify-between items-center px-20">
+    <div className="flex justify-between items-center px-20 py-5">
       <div className="flex items-center gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"

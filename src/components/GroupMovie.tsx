@@ -1,4 +1,4 @@
-import { Database } from "lucide-react";
+
 import { Movie } from "./Movie";
 import { Movietype } from "@/lib/typeofmovies";
 
@@ -10,16 +10,19 @@ export function GroupMovie({
   text: string;
 }) {
   return (
-    <div>
-      <div>
-        <p>{text}</p>
-        <p></p>
+    <>
+      <div className="flex justify-around p-8">
+        <p className="text-2xl font-[600] text-[#09090B]">{text}</p>
+        <p>See more → </p>
       </div>
-      <div className="flex flex-wrap gap-8">
-        {movies.map((movie, i) => {
-          return <Movie key={i} movie={movie} />;
-        })}
+
+      <div className=" flex justify-center">
+        <div className="flex flex-wrap gap-8 w-[1300px]">
+          {movies.map((movie, i) => {
+            return <Movie key={i} movie={movie} />;
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

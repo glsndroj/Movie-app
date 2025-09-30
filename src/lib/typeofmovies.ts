@@ -1,5 +1,5 @@
 export type Movietype = {
   name: string;
-  rating: number;
+  rating: number ;
   images: string[];
 };

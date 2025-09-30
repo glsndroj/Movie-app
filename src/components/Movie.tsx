@@ -5,12 +5,15 @@ export function Movie(props: { movie: Movietype }) {
   return (
     <>
       <div className="">
-        <div className="w-[230px] h-[439px] bg-[#F4F4F5]">
-          <img src="" alt="" />
-          <div>
-            <div className="rating">
+        <div className=" flex flex-col gap-3 w-[230px] h-[439px] bg-[#F4F4F5] rounded-md overflow-hidden">
+          <img
+            src={movie.images[0]}
+            alt={movie.name}
+            className="w-fit h-[340px]"
+          />
+          <div className="flex flex-col gap-2 px-3">
+            <div className="flex items-center gap-1">
               <svg
-                className="bg-[#FDE047]"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -25,8 +28,9 @@ export function Movie(props: { movie: Movietype }) {
                   strokeLinejoin="round"
                 />
               </svg>
+              <p>{movie.rating}</p>
             </div>
-            <p className="name">{movie.name}</p>
+            <h3>{movie.name}</h3>
           </div>
         </div>
       </div>
