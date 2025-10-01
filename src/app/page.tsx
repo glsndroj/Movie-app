@@ -98,7 +98,7 @@ export default function Home() {
             }),
           ]}
         >
-          <CarouselContent className="w-[1200px] ">
+          <CarouselContent className="w-[1200px]  ">
             <CarouselItem>
               <img
                 src="https://assets.aboutamazon.com/d2/86/aa2d0aa147c694f460aade5dafb2/aa-0110-wicked-standard-hero-v2-600kb-2000x1125.jpg"
