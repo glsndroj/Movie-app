@@ -10,24 +10,6 @@ import {
   PopularMovies,
   TopRatedMovies,
 } from "@/components/movielist";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/Carousel";
-import Autoplay from "embla-carousel-autoplay";
-
 export default function Home(props: { movie: Movietype[] }) {
   return (
     <>
