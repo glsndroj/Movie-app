@@ -1,31 +1,17 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Input } from "@/components/ui/input";
+
+import { Movietype } from "@/lib/typeofmovies";
+import { ImageCarousel } from "../components/ImageCarousel";
+import { Navbar } from "../components/Navbar";
+import { GroupMovie } from "../components/GroupMovie";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import Autoplay from "embla-carousel-autoplay";
-import * as React from "react";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
+  UpcomingMovies,
+  PopularMovies,
+  TopRatedMovies,
+} from "@/components/movielist";
 
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-
-export default function Home() {
-  const { setTheme } = useTheme();
+export default function Home(props: { movie: Movietype[] }) {
   return (
     <>
       <div className="flex justify-between items-center px-20">
@@ -122,6 +108,10 @@ export default function Home() {
           <CarouselNext />
         </Carousel>
       </div>
+      <Navbar />
+      <ImageCarousel />
+      <GroupMovie text="Upcoming" movies={UpcomingMovies} />
+      <GroupMovie text="Popular" movies={PopularMovies} />
     </>
   );
 }
