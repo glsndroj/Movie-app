@@ -1,4 +1,3 @@
-
 import { Movie } from "./Movie";
 import { Movietype } from "@/lib/typeofmovies";
 
@@ -11,13 +10,13 @@ export function GroupMovie({
 }) {
   return (
     <>
-      <div className="flex justify-around p-8">
-        <p className="text-2xl font-[600] text-[#09090B]">{text}</p>
+      <div className="flex justify-between py-5 px-[480px]">
+        <p className="text-2xl font-[600] ">{text}</p>
         <p>See more → </p>
       </div>
 
       <div className=" flex justify-center">
-        <div className="flex flex-wrap gap-8 w-[1300px]">
+        <div className="flex flex-wrap gap-8 w-[1280px]">
           {movies.map((movie, i) => {
             return <Movie key={i} movie={movie} />;
           })}

@@ -5,12 +5,8 @@ export function Movie(props: { movie: Movietype }) {
   return (
     <>
       <div className="">
-        <div className=" flex flex-col gap-3 w-[230px] h-[439px] bg-[#F4F4F5] rounded-md overflow-hidden">
-          <img
-            src={movie.images[0]}
-            alt={movie.name}
-            className="w-fit h-[340px]"
-          />
+        <div className=" flex flex-col gap-3 w-[230px] h-[439px] shadow-2xl border rounded-md overflow-hidden">
+          <img src={movie.images[0]} alt={movie.name} className="h-[340px]" />
           <div className="flex flex-col gap-2 px-3">
             <div className="flex items-center gap-1">
               <svg
