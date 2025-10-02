@@ -17,6 +17,7 @@ export default function Home(props: { movie: Movietype[] }) {
       <ImageCarousel />
       <GroupMovie text="Upcoming" movies={UpcomingMovies} />
       <GroupMovie text="Popular" movies={PopularMovies} />
+      <GroupMovie text="Top Rated" movies={TopRatedMovies} />
     </>
   );
 }
