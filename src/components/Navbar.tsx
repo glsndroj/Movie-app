@@ -24,6 +24,8 @@ const genres = [
   "Animation >",
   "Mystery >",
   "Musical >",
+  "War >",
+  "Western >",
 ];
 
 export const Navbar = () => {
@@ -50,8 +52,23 @@ export const Navbar = () => {
       </div>
       <div className="flex gap-5 z-20 relative ">
         <DropdownMenu>
-          <DropdownMenuTrigger className="px-2 rounded-md cursor-pointer ">
-            Genre
+          <DropdownMenuTrigger className=" flex items-center gap-1 px-2 border rounded-md cursor-pointer ">
+            <svg
+              className="text-gray-700 dark:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="17"
+              viewBox="0 0 16 17"
+              fill="none"
+            >
+              <path
+                d="M4 6.5L8 10.5L12 6.5"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span>Genre</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <div className="flex ml-97 flex-col w-[450px] h-fit gap-4 border-[1px] p-4 rounded-md bg-gray-100 mt-2 dark:bg-black  ">

@@ -24,7 +24,10 @@ export function Movie(props: { movie: Movietype }) {
                   strokeLinejoin="round"
                 />
               </svg>
-              <p>{movie.rating}</p>
+              <div className="flex items-center">
+                <p>{movie.rating}</p>
+                <p className="text-[12px] text-gray-300">/10</p>
+              </div>
             </div>
             <h3>{movie.name}</h3>
           </div>

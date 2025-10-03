@@ -2,7 +2,7 @@
 
 import { Movietype } from "@/lib/typeofmovies";
 import { ImageCarousel } from "../components/ImageCarousel";
-import { Navbar } from "../components/Navbar";
+
 import { GroupMovie } from "../components/GroupMovie";
 
 import { UpcomingMovies, PopularMovies, TopRatedMovies } from "@/lib/movielist";

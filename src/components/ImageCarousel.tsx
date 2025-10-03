@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/Carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
 
 export const ImageCarousel = () => {
   return (
@@ -66,7 +67,9 @@ export const ImageCarousel = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <p className="text-black">Watch trailer</p>
+                  <Link href="/wicked" className="no-underline">
+                    <p className="text-black">Watch trailer</p>
+                  </Link>
                 </div>
               </div>
             </div>
