@@ -17,7 +17,7 @@ export function GroupMovie({
 
       <div className=" flex justify-center">
         <div className="flex flex-wrap gap-8 w-[1280px]">
-          {movies.map((movie, i) => {
+          {movies.splice(0, 10).map((movie, i) => {
             return <Movie key={i} movie={movie} />;
           })}
         </div>

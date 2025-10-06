@@ -8,30 +8,12 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 import { Theme } from "./Theme";
-
-const genres = [
-  "Action >",
-  "Comedy >",
-  "Crime >",
-  "Documentary >",
-  "Drama >",
-  "Horror >",
-  "Sci-Fi >",
-  "Thriller >",
-  "Romance >",
-  "Adventure >",
-  "Fantasy >",
-  "Animation >",
-  "Mystery >",
-  "Musical >",
-  "War >",
-  "Western >",
-];
+import { Genres } from "./Genres";
 
 export const Navbar = () => {
   return (
     <div className="flex justify-between items-center px-20 py-5">
-      <div className="flex items-center gap-2">
+      <a href="http://localhost:3000/" className="flex items-center gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -49,7 +31,7 @@ export const Navbar = () => {
         <span className="text-[#4338CA] text-[16px] font-[700] italic">
           Movie Z
         </span>
-      </div>
+      </a>
       <div className="flex gap-5 z-20 relative ">
         <DropdownMenu>
           <DropdownMenuTrigger className=" flex items-center gap-1 px-2 border rounded-md cursor-pointer ">
@@ -76,17 +58,8 @@ export const Navbar = () => {
                 <p className="text-3xl font-bold">Genres</p>
                 <p>See lists of movies by genre</p>
               </div>
-
-              <div className="flex flex-wrap gap-4 py-4 font-[600] border-b-[2px]">
-                {genres.map((genre) => (
-                  <DropdownMenuItem
-                    className="border-[1px] px-1 rounded-md  cursor-pointer"
-                    key={genre}
-                  >
-                    {genre}
-                  </DropdownMenuItem>
-                ))}
-              </div>
+              <DropdownMenuSeparator />
+              <Genres />
             </div>
           </DropdownMenuContent>
         </DropdownMenu>

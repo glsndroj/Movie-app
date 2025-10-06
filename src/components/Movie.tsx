@@ -6,7 +6,11 @@ export function Movie(props: { movie: Movietype }) {
     <>
       <div className="">
         <div className=" flex flex-col gap-3 w-[230px] h-[439px] shadow-2xl border rounded-md overflow-hidden">
-          <img src={movie.images[0]} alt={movie.name} className="h-[340px]" />
+          <img
+            src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+            alt={movie.title}
+            className="h-[340px]"
+          />
           <div className="flex flex-col gap-2 px-3">
             <div className="flex items-center gap-1">
               <svg
@@ -25,11 +29,11 @@ export function Movie(props: { movie: Movietype }) {
                 />
               </svg>
               <div className="flex items-center">
-                <p>{movie.rating}</p>
+                <p>{movie.vote_average}</p>
                 <p className="text-[12px] text-gray-300">/10</p>
               </div>
             </div>
-            <h3>{movie.name}</h3>
+            <h3>{movie.title}</h3>
           </div>
         </div>
       </div>
