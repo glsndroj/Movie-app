@@ -1,10 +1,5 @@
 
 import { ImageCarousel } from "../components/ImageCarousel";
-
-
-
-
-
 import * as Homemovies from "@/components/Homemovies";
 
 export default function Home() {
