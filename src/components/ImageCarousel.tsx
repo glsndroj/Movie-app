@@ -67,9 +67,9 @@ export const ImageCarousel = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <Link href="/wicked" className="no-underline">
+                  
                     <p className="text-black">Watch trailer</p>
-                  </Link>
+                  
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ export const ImageCarousel = () => {
             </div>
           </CarouselItem>
           <CarouselItem>
-            <div className="bg-[url(/moana-2.jpg)] bg-cover bg-center w-full h-screen  text-white py-[208px] px-[200px] flex flex-col gap-4">
+            <div className="bg-[url(/moana.jpg)] bg-cover bg-center w-full h-screen  text-white py-[208px] px-[200px] flex flex-col gap-4">
               <div>
                 <p>Now playing:</p>
                 <h1 className="text-[36px] font-[700]">Moana 2</h1>
