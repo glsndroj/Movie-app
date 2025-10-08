@@ -67,9 +67,8 @@ export const ImageCarousel = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  
-                    <p className="text-black">Watch trailer</p>
-                  
+
+                  <p className="text-black">Watch trailer</p>
                 </div>
               </div>
             </div>

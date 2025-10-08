@@ -12,7 +12,7 @@ export function GroupMovie({
     <>
       <div className="flex justify-between py-5 px-[480px]">
         <p className="text-2xl font-[600] ">{text}</p>
-        <p>See more → </p>
+        <p className="cursor-pointer">See more → </p>
       </div>
 
       <div className=" flex justify-center">

@@ -6,7 +6,7 @@ export function Movie(props: { movie: Movietype }) {
   return (
     <>
       <Link href={`/moviedetails/${movie.id}`}>
-        <div className="">
+        <div className="cursor-pointer">
           <div className=" flex flex-col gap-3 w-[230px] h-[439px] shadow-2xl border rounded-md overflow-hidden">
             <img
               src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}

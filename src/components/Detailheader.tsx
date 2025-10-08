@@ -1,24 +1,17 @@
+import { axiosInstance } from "@/lib/utils";
 import axios from "axios";
 
 export async function DetailHeader({ id }: { id: string }) {
   const getSelectedMovie = async () => {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
-      {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNWRhYWU2NjY0MDRhMmE3NzBjOWUyM2FhNmE1Njc0MiIsIm5iZiI6MTc1OTQ2NDA2Ny40NzIsInN1YiI6IjY4ZGY0YTgzYjgzYTdkOThkMWVlNGQwYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QSdJhSq1HCl2VQQ-tlwg4SKsYkZYMw1FeqdqkKL9rWs",
-        },
-      }
-    );
-    console.log(response.data);
+    const response = await axiosInstance.get(`/movie/${id}?language=en-US`);
+   
     return response.data;
   };
 
   const selectedMovie = await getSelectedMovie();
   return (
     <>
-      <div className="flex w-[1300px] justify-between">
+      <div className="flex w-full justify-between">
         <div className="">
           <h1 className="text-4xl font-[700]">{selectedMovie.title}</h1>
           <div className="flex gap-1">
@@ -54,7 +47,7 @@ export async function DetailHeader({ id }: { id: string }) {
           </div>
           <div>
             <p className="text-[12px] text-gray-500 ml-8">
-              {Math.floor(selectedMovie.vote_count)}k
+              {selectedMovie.vote_count}
             </p>
           </div>
         </div>

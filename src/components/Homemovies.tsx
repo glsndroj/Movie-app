@@ -1,16 +1,10 @@
-import axios from "axios";
 import { GroupMovie } from "./GroupMovie";
+import { axiosInstance } from "@/lib/utils";
 
 export async function UpComingMovies() {
   const getupcomingMovies = async () => {
-    const response = await axios.get(
-      "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
-      {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNWRhYWU2NjY0MDRhMmE3NzBjOWUyM2FhNmE1Njc0MiIsIm5iZiI6MTc1OTQ2NDA2Ny40NzIsInN1YiI6IjY4ZGY0YTgzYjgzYTdkOThkMWVlNGQwYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QSdJhSq1HCl2VQQ-tlwg4SKsYkZYMw1FeqdqkKL9rWs",
-        },
-      }
+    const response = await axiosInstance.get(
+      `/movie/upcoming?language=en-US&page=1`
     );
     return response.data.results;
   };
@@ -20,37 +14,25 @@ export async function UpComingMovies() {
 }
 
 export async function PopularMovies() {
-  const getupcomingMovies = async () => {
-    const response = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-      {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNWRhYWU2NjY0MDRhMmE3NzBjOWUyM2FhNmE1Njc0MiIsIm5iZiI6MTc1OTQ2NDA2Ny40NzIsInN1YiI6IjY4ZGY0YTgzYjgzYTdkOThkMWVlNGQwYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QSdJhSq1HCl2VQQ-tlwg4SKsYkZYMw1FeqdqkKL9rWs",
-        },
-      }
+  const getPopularMovies = async () => {
+    const response = await axiosInstance.get(
+      `/movie/popular?language=en-US&page=1`
     );
     return response.data.results;
   };
-  const upcomingMovies = await getupcomingMovies();
+  const PopularMovies = await getPopularMovies();
 
-  return <GroupMovie text={"Popular"} movies={upcomingMovies} />;
+  return <GroupMovie text={"Popular"} movies={PopularMovies} />;
 }
 
 export async function TopRatedMovies() {
-  const getupcomingMovies = async () => {
-    const response = await axios.get(
-      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-      {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNWRhYWU2NjY0MDRhMmE3NzBjOWUyM2FhNmE1Njc0MiIsIm5iZiI6MTc1OTQ2NDA2Ny40NzIsInN1YiI6IjY4ZGY0YTgzYjgzYTdkOThkMWVlNGQwYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QSdJhSq1HCl2VQQ-tlwg4SKsYkZYMw1FeqdqkKL9rWs",
-        },
-      }
+  const getTopRatedMovies = async () => {
+    const response = await axiosInstance.get(
+      `/movie/top_rated?language=en-US&page=1`
     );
     return response.data.results;
   };
-  const upcomingMovies = await getupcomingMovies();
+  const topRatedMovies = await getTopRatedMovies();
 
-  return <GroupMovie text={"Top Rated"} movies={upcomingMovies} />;
+  return <GroupMovie text={"Top Rated"} movies={topRatedMovies} />;
 }
