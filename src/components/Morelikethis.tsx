@@ -23,7 +23,7 @@ export async function MorelikeThis({ id }: { id: string }) {
         </div>
       </div>
       <div className="flex gap-6">
-        {more.slice(0, 7).map((movie: any) => (
+        {more.splice(0, 7).map((movie: any) => (
           <Movie key={movie.id} movie={movie} />
         ))}
       </div>

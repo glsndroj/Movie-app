@@ -37,12 +37,12 @@ export async function DetailDesc({ id }: { id: string }) {
   const directors = getDirector();
 
   const getWriter = () => {
-    const directors = credits.crew.filter((member: { job: string }) => {
+    const writers = credits.crew.filter((member: { job: string }) => {
       if (member.job === "Screenplay") {
         return true;
       }
     });
-    return directors;
+    return writers;
   };
 
   const writers = getWriter();
