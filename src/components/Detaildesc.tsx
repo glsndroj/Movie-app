@@ -52,7 +52,7 @@ export async function DetailDesc({ id }: { id: string }) {
       <div className="w-full flex flex-col gap-10">
         <div className="flex gap-3 mt-10">
           {genre.genres.map((genre: { name: string }) => {
-            return <div className="border rounded-2xl px-2 ">{genre.name}</div>;
+            return <div key={Math.random()} className="border rounded-2xl px-2 ">{genre.name}</div>;
           })}
         </div>
         <div>
@@ -61,13 +61,13 @@ export async function DetailDesc({ id }: { id: string }) {
         <div className="flex gap-10 border-b-2">
           <p className="font-bold">Director</p>
           {directors.map((director: { name: string }) => {
-            return <div>{director.name}</div>;
+            return <div key={Math.random()}>{director.name}</div>;
           })}
         </div>
         <div className="flex gap-10 border-b-2">
           <p className="font-bold">Writer</p>
           {writers.map((director: { name: string }) => {
-            return <div>{director.name}</div>;
+            return <div key={Math.random()}>{director.name}</div>;
           })}
         </div>
         <div className="flex gap-10 border-b-2">
