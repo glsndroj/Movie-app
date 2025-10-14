@@ -26,7 +26,7 @@ export async function Trailer({ id }: { id: string }) {
     <Dialog>
       <form>
         <DialogTrigger asChild>
-          <Button className="cursor-pointer" variant="outline">Watch Trailer</Button>
+          <Button className="cursor-pointer" variant="outline">Play Trailer</Button>
         </DialogTrigger>
         <DialogTitle></DialogTitle>
         <DialogContent className="sm:max-w-[70%]">
