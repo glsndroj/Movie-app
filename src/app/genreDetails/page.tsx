@@ -10,10 +10,6 @@ export default async function Home ({searchParams}: genrePageProps) {
     
     return (
         <div className="">
-            <div>
-                
-            </div>
-            
             <Genredetails searchParams={searchParams}/>
         </div>
     )
