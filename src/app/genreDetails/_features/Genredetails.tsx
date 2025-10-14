@@ -21,8 +21,7 @@ export async function Genredetails ({searchParams}: genrePageProps)  {
     
     return(
         <div>
-            {genreId}
-            {genreName}
+            
             {movies.map((movie: Movietype) => {
                 return (
                 <Movie 

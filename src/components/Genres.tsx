@@ -1,4 +1,3 @@
-import axios from "axios";
 
 import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { axiosInstance } from "@/lib/utils";
