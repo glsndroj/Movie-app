@@ -16,7 +16,7 @@ export async function Genredetails ({searchParams}: genrePageProps)  {
     }
     
     
-    const movies = await getMoviesByGenre()
+    const movies:Movietype[] = await getMoviesByGenre()
     
     
     return(
@@ -24,7 +24,7 @@ export async function Genredetails ({searchParams}: genrePageProps)  {
             
             {movies.map((movie: Movietype) => {
                 return (
-                <Movie 
+                <Movie key={movie.id} 
                movie={movie}  
                 />
             );

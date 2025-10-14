@@ -1,5 +1,5 @@
 import { Genredetails } from "@/app/genreDetails/_features/Genredetails";
-import { Genres } from "@/components/Genres";
+
 
 
 type genrePageProps = {
@@ -9,8 +9,11 @@ type genrePageProps = {
 export default async function Home ({searchParams}: genrePageProps) {
     
     return (
-        <div>
-            <Genres/>
+        <div className="">
+            <div>
+                
+            </div>
+            
             <Genredetails searchParams={searchParams}/>
         </div>
     )
