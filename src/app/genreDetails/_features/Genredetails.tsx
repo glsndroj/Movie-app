@@ -17,7 +17,7 @@ export async function Genredetails ({searchParams}: genrePageProps)  {
     
     
     const movies = await getMoviesByGenre()
-    console.log(movies)
+    
     
     return(
         <div>

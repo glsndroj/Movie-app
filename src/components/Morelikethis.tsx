@@ -7,10 +7,11 @@ export async function MorelikeThis({ id }: { id: string }) {
     const response = await axiosInstance.get(
       `/movie/${id}/similar?language=en-US&page=1`
     );
-    console.log(response.data.results);
+    
     return response.data.results;
   };
   const more = await getMore();
+  
 
   return (
     <>

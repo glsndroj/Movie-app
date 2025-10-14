@@ -17,7 +17,7 @@ export async function DetailDesc({ id }: { id: string }) {
   const desc = await getDesc();
 
   const getCredits = async () => {
-    const credits = await axiosInstance.get(
+    const credits = await axiosInstance.get( 
       `/movie/${id}/credits?language=en-US`
     );
 
