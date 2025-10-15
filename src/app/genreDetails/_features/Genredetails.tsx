@@ -12,15 +12,20 @@ export async function Genredetails ({searchParams}: genrePageProps)  {
 
     const getMoviesByGenre = async () => {
         const response = await axiosInstance.get(`/discover/movie?language=en&with_genres=${genreId}&page=${page}`);
+        
         return response.data.results;
     }
+    
     
     
     const movies:Movietype[] = await getMoviesByGenre()
     
     
+    
     return(
-        <div>
+
+        <>
+        <div className="flex gap-5 w-[1300px] flex-wrap">
             
             {movies.map((movie: Movietype) => {
                 return (
@@ -30,6 +35,7 @@ export async function Genredetails ({searchParams}: genrePageProps)  {
             );
                 
             })}
-        </div>
+        </div></>
+        
     )
 }

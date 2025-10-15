@@ -1,33 +1,37 @@
+"use client";
 
-import { DropdownMenu, DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
+import { useEffect, useState } from "react";
 import { axiosInstance } from "@/lib/utils";
+import Link from "next/link";
 
+export function Genres() {
+  const [genres, setGenres] = useState<{ id: number; name: string }[]>([]);
+  
 
-export async function Genres() {
-  const getGenres = async () => {
-    const genre = await axiosInstance.get(`/genre/movie/list?language=en`)
-
-    return genre.data.genres;
-  };
-  const genres = await getGenres();
-
+  useEffect(() => {
+    const fetchGenres = async () => {
+      try {
+        const res = await axiosInstance.get("/genre/movie/list?language=en");
+        setGenres(res.data.genres);
+      } catch (err) {
+        
+      }
+    };
+    fetchGenres();
+  }, []);
+  
 
   return (
-    <div className="flex flex-wrap gap-4 py-4 font-[600] border-b-[2px]">
-      {genres.map((genre: { name: string }) => {
-        return (
-          <DropdownMenu key={Math.random()}>
-            <DropdownMenuItem
-            
-          key={Math.random()}
-          className="border-[1px] px-1 rounded-md  cursor-pointer"
+    <div className="flex flex-wrap gap-2">
+      {genres.map((genre) => (
+        <Link
+          key={genre.id}
+          href={`/genreDetails?genreId=${genre.id}&genreName=${genre.name}`}
+          className="px-4 py-2 font-bold rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition"
         >
           {genre.name + " >"}
-        </DropdownMenuItem>
-        </DropdownMenu>
-          
-        );
-      })}
+        </Link>
+      ))}
     </div>
   );
 }

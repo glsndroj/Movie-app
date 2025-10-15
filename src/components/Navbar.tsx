@@ -1,9 +1,11 @@
-import { Input } from "@/components/ui/input";
+"use client";
 
+
+import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
+ 
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
@@ -13,7 +15,7 @@ import { Genres } from "./Genres";
 export const Navbar = () => {
   return (
     <div className="flex justify-between items-center px-20 py-5">
-      <a href="http://localhost:3000/" className="flex items-center gap-2">
+      <a href="/" className="flex items-center gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -53,7 +55,7 @@ export const Navbar = () => {
             <span>Genre</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <div className="flex ml-97 flex-col w-[450px] h-fit gap-4 border-[1px] p-4 rounded-md bg-gray-100 mt-2 dark:bg-black  ">
+            <div className="flex flex-col w-[450px] h-fit gap-4 border-[1px] p-4 rounded-md bg-gray-100 mt-2 dark:bg-black">
               <div className="flex flex-col gap-3 border-b-[2px]">
                 <p className="text-3xl font-bold">Genres</p>
                 <p>See lists of movies by genre</p>
@@ -64,7 +66,7 @@ export const Navbar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
         <div className="relative">
-          <Input className="w-[500px] pl-10" placeholder="Search..."></Input>
+          <Input className="w-[500px] pl-10" placeholder="Search..." />
           <svg
             className="absolute left-[14px] top-[11px] text-gray-700 dark:text-white"
             xmlns="http://www.w3.org/2000/svg"
