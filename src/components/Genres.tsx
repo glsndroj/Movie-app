@@ -1,25 +1,14 @@
-"use client";
 
-import { useEffect, useState } from "react";
 import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
 
-export function Genres() {
-  const [genres, setGenres] = useState<{ id: number; name: string }[]>([]);
-  
+export async function Genres() {
+  const getGenres = async () => {
+    const genre = await axiosInstance.get(`/genre/movie/list?language=en`)
 
-  useEffect(() => {
-    const fetchGenres = async () => {
-      try {
-        const res = await axiosInstance.get("/genre/movie/list?language=en");
-        setGenres(res.data.genres);
-      } catch (err) {
-        
-      }
-    };
-    fetchGenres();
-  }, []);
-  
+    return genre.data.genres;
+  };
+  const genres = await getGenres();
 
   return (
     <div className="flex flex-wrap gap-2">
