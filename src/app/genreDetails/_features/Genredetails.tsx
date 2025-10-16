@@ -8,34 +8,37 @@ type genrePageProps = {
 
 export async function Genredetails ({searchParams}: genrePageProps)  {
     
-    const {genreId, genreName, page = 1}= searchParams;
+    const {genreId, genreName, page = "1"}= searchParams;
+    const safePage = Math.max(1, Math.min(500, parseInt(page)));
+    
 
     const getMoviesByGenre = async () => {
         const response = await axiosInstance.get(`/discover/movie?language=en&with_genres=${genreId}&page=${page}`);
-        
-        return response.data.results;
+        console.log(response.data)
+        return response.data;
     }
     
-    
-    
-    const movies:Movietype[] = await getMoviesByGenre()
-    
-    
+    const movies = await getMoviesByGenre()
     
     return(
 
         <>
-        <div className="flex gap-5 w-[1300px] flex-wrap">
+        <div >
+            <h4 className="p-2 font-bold text-[24px]">
+            {movies.total_results} Titles{genreName ? ` in "${genreName}"` : ""}</h4>
             
-            {movies.map((movie: Movietype) => {
+           <div className="flex gap-5 w-[1300px] flex-wrap">
+           {movies.results.map((movie: Movietype) => {
                 return (
                 <Movie key={movie.id} 
                movie={movie}  
                 />
             );
                 
-            })}
-        </div></>
+            })} 
+           </div>
+        </div>
+        </>
         
     )
 }

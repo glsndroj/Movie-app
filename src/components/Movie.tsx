@@ -31,8 +31,8 @@ export function Movie(props: { movie: Movietype }) {
                   />
                 </svg>
                 <div className="flex items-center">
-                  <p>{movie.vote_average}</p>
-                  <p className="text-[12px] text-gray-300">/10</p>
+                  <p>{movie.vote_average} <span className="text-[12px] text-gray-300">/10</span></p>
+                  
                 </div>
               </div>
               <h3>{movie.title}</h3>
