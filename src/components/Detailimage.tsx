@@ -10,7 +10,7 @@ export async function DetailImages({ id }: { id: string }) {
     return response.data;
   };
 
-  const movie = await getImages();
+  const movie = await getImages(); 
   return (
     <div className="w-full  mt-10">
       <div className="flex gap-6 relative ">

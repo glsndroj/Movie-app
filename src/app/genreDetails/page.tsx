@@ -1,4 +1,4 @@
-// pages/genreDetails.tsx эсвэл app/genreDetails/page.tsx
+
 import { Genres } from "@/components/Genres";
 import { Genredetails } from "./_features/Genredetails";
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";

@@ -1,5 +1,4 @@
 import { axiosInstance } from "@/lib/utils";
-import axios from "axios";
 
 export async function DetailHeader({ id }: { id: string }) {
   const getSelectedMovie = async () => {
