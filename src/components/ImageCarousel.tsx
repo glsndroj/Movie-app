@@ -1,5 +1,6 @@
 "use client";
 
+import CarouselSkeleton from "@/app/carouselSkeleton";
 import {
   Carousel,
   CarouselContent,
@@ -8,9 +9,19 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+
 
 export const ImageCarousel = () => {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(()=> {
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer)
+
+  }, [])
+
+  if(loading) return <CarouselSkeleton/>
   return (
     <div className="">
       <Carousel

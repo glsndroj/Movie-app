@@ -1,4 +1,4 @@
-import { Movietype } from "@/lib/typeofmovies";
+
 import { axiosInstance } from "@/lib/utils";
 import { Movie } from "./Movie";
 

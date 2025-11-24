@@ -1,6 +1,7 @@
 import { Movie } from "./Movie";
 import { Movietype } from "@/lib/typeofmovies";
 
+
 export function GroupMovie({
   movies,
   text,
@@ -8,6 +9,7 @@ export function GroupMovie({
   movies: Movietype[];
   text: string;
 }) {
+
   return (
     <>
       <div className="flex justify-between py-5 px-[480px]">
