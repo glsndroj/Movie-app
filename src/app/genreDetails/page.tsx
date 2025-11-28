@@ -25,8 +25,8 @@ export default function Home({ searchParams }: genrePageProps) {
           <Genres />
         </div>
 
-        <div>
-          <Suspense fallback={<GenreSkeleton/>}>
+        <div className="">
+          <Suspense fallback={<GenreSkeleton />}>
             <Genredetails searchParams={searchParams} />
           </Suspense>
         </div>

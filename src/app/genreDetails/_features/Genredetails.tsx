@@ -27,7 +27,7 @@ export async function Genredetails ({searchParams}: genrePageProps)  {
             <h4 className="p-2 font-bold text-[24px]">
             {movies.total_results} Titles{genreName ? ` in "${genreName}"` : ""}</h4>
             
-           <div className="flex gap-5 w-[1300px] flex-wrap">
+           <div className="flex gap-5 flex-wrap">
            {movies.results.map((movie: Movietype) => {
                 return (
                 <Movie key={movie.id} 

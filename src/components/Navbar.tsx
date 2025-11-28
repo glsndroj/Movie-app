@@ -1,15 +1,46 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
- 
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { Theme } from "./Theme";
 import { Genres } from "./Genres";
+import { useState } from "react";
+import { axiosInstance } from "@/lib/utils";
+import { Divide } from "lucide-react";
 
 export const Navbar = () => {
+  const [query, setQuery] = useState("");
+  const [result, setResult] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const page = 1;
+
+  const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+
+    if (!value) {
+      setResult([]);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await axiosInstance.get(
+        `/search/movie?query=${query}&language=en-US&page=${page}`
+      );
+      setResult(res.data.result || []);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="flex justify-between items-center px-20 py-5">
       <a href="/" className="flex items-center gap-2">
@@ -62,24 +93,49 @@ export const Navbar = () => {
             </div>
           </DropdownMenuContent>
         </DropdownMenu>
-        <div className="relative">
-          <Input className="w-[500px] pl-10" placeholder="Search..." />
+        <div className="relative w-[500px]">
+          <Input
+            placeholder="Search..."
+            value={query}
+            onChange={handleSearch}
+            className="w-full pl-10"
+          />
+          {/* Search icon */}
           <svg
-            className="absolute left-[14px] top-[11px] text-gray-700 dark:text-white"
+            className="absolute left-3 top-3 text-gray-500"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="17"
-            viewBox="0 0 16 17"
             fill="none"
+            viewBox="0 0 16 17"
           >
             <g opacity="0.5">
               <path
-                d="M6.93262 3.1333C9.30738 3.1333 11.2323 5.05837 11.2324 7.43311C11.2324 8.44873 10.8814 9.38107 10.293 10.1167L10.0127 10.4663L13.3564 13.8101C13.3628 13.8166 13.3663 13.825 13.3662 13.8335L13.3564 13.8569C13.3435 13.8698 13.3226 13.8697 13.3096 13.8569L9.96582 10.5132L9.61621 10.7935C8.88058 11.3819 7.94824 11.7329 6.93262 11.7329C4.55788 11.7328 2.63281 9.80786 2.63281 7.43311C2.63292 5.05844 4.55795 3.13341 6.93262 3.1333ZM6.93262 3.19971C4.59476 3.19981 2.69932 5.09525 2.69922 7.43311C2.69922 9.77105 4.5947 11.6664 6.93262 11.6665C9.27063 11.6665 11.166 9.77111 11.166 7.43311C11.1659 5.09519 9.27056 3.19971 6.93262 3.19971Z"
+                d="M6.93262 3.1333C9.30738 3.1333 11.2323 5.05837 11.2324 7.43311C11.2324 8.44873 10.8814 9.38107 10.293 10.1167L10.0127 10.4663L13.3564 13.8101C13.3628 13.8166 13.3663 13.825 13.3662 13.8335L13.3564 13.8569C13.3435 13.8698 13.3226 13.8697 13.3096 13.8569L9.96582 10.5132L9.61621 10.7935C8.88058 11.3819 7.94824 11.7329 6.93262 11.7329C4.55788 11.7328 2.63281 9.80786 2.63281 7.43311C2.63292 5.05844 4.55795 3.13341 6.93262 3.1333Z"
                 fill="currentColor"
                 stroke="currentColor"
               />
             </g>
           </svg>
+
+          {/* Dropdown results */}
+          {result.length > 0 && (
+            <div className="absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg mt-2 rounded-md z-50 max-h-80 overflow-y-auto">
+              {result.map((movie) => (
+                <div
+                  key={movie.id}
+                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+                >
+                  {movie.title}
+                </div>
+              ))}
+            </div>
+          )}
+          {loading && (
+            <div className="absolute top-full left-0 w-full bg-white p-2">
+              Loading...
+            </div>
+          )}
         </div>
       </div>
       <div>
